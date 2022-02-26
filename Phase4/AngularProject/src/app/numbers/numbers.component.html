@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-4">
+            <button class="btn btn-danger" (click)="toggleShow()">Show numbers</button>
+            <br>
+            <ul class="list-group">
+                <div *ngIf="shownumbers">
+                    <li class="list-group-item" *ngFor="let number of numbers; let i = index"
+                    [ngClass]="{odd: number % 2 !== 0 }"
+                    [ngStyle]="{backgroundColor: number % 2 !== 0 ? 'lightgreen' : 'transparent' }"
+                    >
+                        {{ number }}
+                    </li>
+                </div>
+            </ul>
+        </div>
+        <div [ngSwitch]="svalue" >
+            <p *ngSwitchCase="3">value is 3</p>
+            <p *ngSwitchCase="8">value is 8</p>
+            <p *ngSwitchCase="12">value is 12</p>
+            <p *ngSwitchDefault>value is Default</p>
+        </div>
+    </div>
+</div>
